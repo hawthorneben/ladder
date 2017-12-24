@@ -1,0 +1,35 @@
+<?php
+    header('Content-type: text/xml');
+    include('resources/db_connect.php');
+
+    // Echo our RSS feed
+    echo "<?xml version='1.0' encoding='UTF-8' ?><rss version='2.0'>";
+    echo "<channel>";
+    echo "<title>Ben's Ladder RSS</title>";
+    echo "<link>http://bhawthorne.bitnamiapp.com</link>";
+    echo "<description>Stay up to date on recent match results.</description>";
+
+    $result = $connection->query('select * from match_view order by played desc');
+
+    foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $match)
+    {
+        echo "<item>";
+        $statement = $connection->prepare("select name from player where username = :user");
+        $statement->execute(array(":user"=>$match['winner']));
+        $winnerName = $statement->fetch(PDO::FETCH_ASSOC)['name'];
+
+        $statement = $connection->prepare("select name from player where username = :user");
+        $statement->execute(array(":user"=>$match['loser']));
+        $loserName = $statement->fetch(PDO::FETCH_ASSOC)['name'];
+
+        echo "<title>$winnerName beat $loserName in a match!</title>";
+        echo "<link>http://bhawthorne.bitnamiapp.com/ladder</link>";
+        echo "<description>On ".$match['played']." there was a match between $winnerName
+                and $loserName. A total of ".($match['won'] + $match['lost'])." games were played.</description>";
+        
+        echo "</item>";
+    }
+
+    echo "</channel>";
+    echo "</rss>";
+?>

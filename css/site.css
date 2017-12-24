@@ -1,0 +1,264 @@
+.bgimage {
+    background-image: url("/content/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.spaced-table {
+    border-collapse:collapse;
+    border-spacing: 50px 0;
+  }
+  
+.spaced-table td {
+    padding: 10px;
+}
+
+.spaced-table tr { border-bottom: 1px solid #F4F1EA; }
+
+.floating-card {
+    border:none;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    white-space:nowrap;
+    padding-bottom: 20px;
+}
+
+.padded-table {
+    padding-bottom:20px;
+}
+
+.theme-color {
+    color: #F4F1EA!important;
+    background-color: #444341!important;
+}
+
+.login {
+    position:absolute; 
+    right:0px;
+}
+
+.wide {
+    width:100%
+}
+
+.login:hover {
+    color: #F4F1EA!important;
+    background-color: #444341!important;
+}
+
+.accent-color {
+    color: #0E0E0C!important;
+}
+
+.w3-white {
+    color: #000 !important;
+    background-color: #F4F1EA !important;
+}
+
+.header-icon {
+    font-size: 27px !important;
+}
+
+.w3-card {
+    border-radius: 4px !important;
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Quicksand", sans-serif
+}
+.w3-bar,h1,button {
+    font-family: "Quicksand", sans-serif
+}
+
+.card__one {
+  transition: transform .5s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+    content: '';
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.006, 1.006, 1);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  flex: 1 1 100%;
+
+  @media screen and (min-width: $medium) {
+    flex-basis: calc(33.33% - (#{31px * 2} + #{20px * 2}));
+  }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 54px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #F4F1EA;
+    margin: 5px auto; /* 15% from the top and centered */
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 10px; 
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: #FF5555;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {  
+    border: none;
+    outline: none;
+    color: #F4F1EA;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #F4F1EA;
+    color:#444341;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F4F1EA;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content p {
+    margin: 0px !important;
+    font-size: 16px;
+    float: none;
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content p:hover {
+    background-color: #ddd;
+}
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
